@@ -18,5 +18,18 @@ public class LevelData : ScriptableObject {
 
     public LevelSetting[] levelSettings;
 
+    public LevelSetting CurLevelSetting
+    {
+        get
+        {
+            PlayerData playerData = GameFacade.GetInstance().playerData;
+            int index = Mathf.Min(playerData.lv - 1, levelSettings.Length - 1);
+            return levelSettings[index];
+
+
+        }
+
+    }
+
 
 }
